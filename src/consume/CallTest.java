@@ -5,8 +5,9 @@ import center.ServiceCenterImpl;
 import service.IServer;
 import service.ServiceImpl;
 
-import java.net.InetSocketAddress;
-import java.time.chrono.IsoChronology;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
 
 /********************************************************************************
  *
@@ -20,9 +21,10 @@ import java.time.chrono.IsoChronology;
  *******************************************************************************/
 public class CallTest {
     public static void main(String[] args) {
-        new Thread(CallTest::dorun).start();
-        IServer server=RPCClient.getRemoteProxyObj(IServer.class,new InetSocketAddress("localhost",1234));
-        server.show("chenlm");
+//        new Thread(CallTest::dorun).start();
+//        IServer server=RPCClient.getRemoteProxyObj(IServer.class,new InetSocketAddress("localhost",1234));
+//        server.show("chenlm");
+        tez();
 
     }
 
@@ -35,5 +37,21 @@ public class CallTest {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private static void tez() {
+        List<String> list = new LinkedList<>();
+        list.add("6");
+        list.add("7");
+        list.add("8");
+        list.add("9");
+        Iterator iterator = list.iterator();
+        while (iterator.hasNext()) {
+            if (iterator.next().equals("8")) {
+                iterator.remove();
+            }
+        }
+
+
     }
 }

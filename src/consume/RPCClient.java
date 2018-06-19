@@ -47,6 +47,7 @@ public class RPCClient<T> {
             ObjectOutputStream output = null;
             try {
                 //总结 ，，每写入一次流就会被读取一次
+                //read会有阻塞，知道
                 socket=new Socket();
                 System.out.println("开始连接服务中心");
                 System.out.println("***请求处理+0");
